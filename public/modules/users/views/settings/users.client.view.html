@@ -3,21 +3,37 @@
 <!-- only can see this page if you are logged in. I think it's becuase it's using find to only find the current user, but I don't know why that's happening -->
 <!-- my attempts to work around this have failed so far
     <div data-ng-show="authentication.user">
- -->        <div class="page-header">
-            <h1>Humans</h1>
+ -->    <div class="page-header">
+        <h1>Humans</h1>
         </div>
         <p><type>Username:</type></p>
-        <!-- find and find one only gives me current user -->
         <a href="/#!/settings/profile">{{user.username}}</a>
 
 
         <!-- I can see where this is being called and is commented ngRepeat user in users -->
-        <p><type>Username:</type></p>
+<!--         <p><type>Username:</type></p>
         <div data-ng-repeat="user in users">
             <p>no</p>
-            <p>{{user.username}}</p>
+            <p>{{user.user}}</p>
+        </div> -->
+
+        <div class="list-group">
+            <a data-ng-repeat="user in users" data-ng-href="#!/settings/profile-url/{{user.user._id}}" class="list-group-item">
+                <small class="list-group-item-text">
+                <p>{{user}}</p>
+                <p>wwwhhhhhhyyyyyyy</p>
+                </small>
+                <h4 class="list-group-item-heading" data-ng-bind="user.username"></h4>
+            </a>
         </div>
-<!--     </div> -->
+
+        <!-- <div ng-controller="ExampleController"> -->
+          <!-- <div ng-repeat="user in users" ng-init="outerIndex = $index"> -->
+            <div data-ng-repeat="user in users" ng-init="innerIndex = $index">
+               <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{user}};</span>
+            </div>
+          <!-- </div> -->
+        <!-- </div> -->
 
 
     <!-- this would call when I had weirdness going on with the controller -->

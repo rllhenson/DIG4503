@@ -45,6 +45,45 @@
 			});
 		}));
 
+		it('$scope.find() should create an array with at least one user object fetched from XHR', inject(function(Users) {
+			// Create sample Crudstory using the Crudstories service
+			var sampleUser = new Users({
+				name: 'New User'
+			});
+
+			// Create a sample Crudstories array that includes the new Crudstory
+			var sampleUsers = [sampleUser];
+
+			// Set GET response
+			$httpBackend.expectGET('users').respond(sampleUsers);
+
+			// Run controller functionality
+			scope.find();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.users).toEqualData(sampleUsers);
+		}));
+
+		it('$scope.findOne() should create an array with one User object fetched from XHR using a userId URL parameter', inject(function(Users) {
+			// Define a sample Crudstory object
+			var sampleUser = new Users({
+				name: 'New User'
+			});
+
+			// Set the URL parameter
+			$stateParams.useryId = '525a8422f6d0f87f0e407a33';
+
+			// Set GET response
+			$httpBackend.expectGET(/settings\/profile-url\/([0-9a-fA-F]{24})$/).respond(sampleUser);
+
+			// Run controller functionality
+			scope.findOne();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.user).toEqualData(sampleUser);
+		}));
 
 		it('$scope.signin() should login with a correct user and password', function() {
 			// Test expected GET request

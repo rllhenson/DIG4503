@@ -1,11 +1,8 @@
 'use strict';
 
-angular.module('users').controller('SettingsController', ['$scope', '$http', '$stateParams', '$location', 'Users', 'Authentication',
+angular.module('users').controller('UserController', ['$scope', '$http', '$stateParams', '$location', 'Users', 'Authentication',
 	function($scope, $http, $stateParams, $location, Users, Authentication) {
 		$scope.user = Authentication.user;
-
-		// If user is not signed in then redirect back home
-		// if (!$scope.user) $location.path('/');
 
 		// Check if there are additional accounts 
 		$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
@@ -79,25 +76,5 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$s
 				userId: $stateParams.userId
 			});
 		};
-
-		$scope.userByID = function(req, res, next, id) {
-			User.findOne({
-				_id: id
-			}).exec(function(err, user) {
-				if (err) return next(err);
-				if (!user) return next(new Error('Failed to load User ' + id));
-				req.profile = user;
-				next();
-		});
-
-		$scope.oneuserByID = function(req, res, next, id) { 
-			User.findById(id).populate('user', 'username').exec(function(err, user) {
-				if (err) return next(err);
-				if (! user) return next(new Error('Failed to load User ' + id));
-				req.user = user ;
-				next();
-			});
-		};
-};
 	}
 ]);

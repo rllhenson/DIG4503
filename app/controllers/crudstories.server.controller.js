@@ -86,9 +86,10 @@ exports.list = function(req, res) {
 
 /**
  * Crudstory middleware
+ changing this from displayName to username doesn't change any thing
  */
 exports.crudstoryByID = function(req, res, next, id) { 
-	Crudstory.findById(id).populate('user', 'displayName').exec(function(err, crudstory) {
+	Crudstory.findById(id).populate('user', 'username').exec(function(err, crudstory) {
 		if (err) return next(err);
 		if (! crudstory) return next(new Error('Failed to load Crudstory ' + id));
 		req.crudstory = crudstory ;

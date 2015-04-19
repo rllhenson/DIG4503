@@ -14,7 +14,7 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/users/views/settings/profile.client.view.html'
 		}).
 		state('profileUrl', {
-			url: '/settings/user-profile',
+			url: '/settings/profile-url/:userId',
 			templateUrl: 'modules/users/views/settings/profile-url.client.view.html'
 		}).
 		state('users', {
