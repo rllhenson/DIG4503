@@ -30,6 +30,7 @@ exports.userByID = function(req, res, next, id) {
 exports.list = function(req, res) { 
 	User.find().sort('-created').exec(function(err, users) {
 		res.jsonp(users);
+		// what would happen if this was req?
 	});
 };
 

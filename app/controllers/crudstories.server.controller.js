@@ -21,9 +21,9 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {			
-			// var socketio = req.app.get('socketio'); // makes a socket instance
+			var socketio = req.app.get('socketio'); // makes a socket instance
 			// socketio.emit('article.created', article); // sends the socket event to all current users
-			// socketio.emit('crudstory.created', crudstory);
+			socketio.emit('crudstory.created', crudstory);
 			
 			res.jsonp(crudstory);
 		}

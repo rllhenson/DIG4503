@@ -1,8 +1,8 @@
 'use strict';
 
 // Crudstories controller
-angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$stateParams', '$location', 'Authentication', /*'Socket',*/ 'Crudstories',
-	function($scope, $stateParams, $location, Authentication, /*Socket,*/ Crudstories) {
+angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Socket', 'Crudstories',
+	function($scope, $stateParams, $location, Authentication, Socket, Crudstories) {
 		$scope.authentication = Authentication;
 
 		// Create new Crudstory

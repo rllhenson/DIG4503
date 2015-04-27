@@ -20,6 +20,7 @@ var CrudstorySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	// this needs to be an array
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

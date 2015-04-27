@@ -89,6 +89,9 @@ var UserSchema = new Schema({
 	resetPasswordExpires: {
 		type: Date
 	}
+	// add stories here?
+	// place for favories
+	// 
 });
 
 /**
