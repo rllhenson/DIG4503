@@ -71,9 +71,10 @@ exports.delete = function(req, res) {
 
 /**
  * List of Crudstories
+ changed from display to username here, we'll see what happens
  */
 exports.list = function(req, res) { 
-	Crudstory.find().sort('-created').populate('user', 'displayName').exec(function(err, crudstories) {
+	Crudstory.find().sort('-created').populate('user', 'username').exec(function(err, crudstories) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

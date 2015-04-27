@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+/*@import url(http://fonts.googleapis.com/css?family=Special+Elite);*/
 
 .content {
 	margin-top: 50px;
@@ -18,7 +18,7 @@
 
 .navbar-brand{
 	font-family: 'Special Elite', cursive;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px !important;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0 !important;
 	font-size: 1.7em;
 	/*color: rgb(51, 51, 51) !important;*/
 }
@@ -41,6 +41,8 @@ type{
 	position: absolute;
 	top: 50%;
 	-ms-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
   	-webkit-transform: translateY(-50%);
   	transform: translateY(-50%);
 }
@@ -51,7 +53,7 @@ type{
 
 .move{
 	position: absolute;
-	left: 0%;
+	left: 0;
 	width: 20%;
 	cursor: pointer;
 	font-family: 'Special Elite', cursive;
@@ -97,4 +99,11 @@ type{
 
 .icon-bar{
 	background-color: rgb(157, 157, 157) !important;
+}
+
+
+#readmore{
+	margin-top: 10px;
+	/*margin-left: 50%;*/
+
 }

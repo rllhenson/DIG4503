@@ -4,6 +4,7 @@
 angular.module('users').config(['$stateProvider',
 	function($stateProvider) {
 		// Users state routing
+
 		$stateProvider.
 		state('edit', {
 			url: '/settings/edit',
@@ -15,11 +16,15 @@ angular.module('users').config(['$stateProvider',
 		}).
 		state('profileUrl', {
 			url: '/settings/profile-url/:userId',
+			// controller: function($scope, $stateParams) {
+	  //           // get the id
+	  //           $scope.id = $stateParams.userId;  
+	  //       },
 			templateUrl: 'modules/users/views/settings/profile-url.client.view.html'
 		}).
 		state('users', {
-			url: '/settings/users',
-			templateUrl: 'modules/users/views/settings/users.client.view.html'
+			url: '/users',
+			templateUrl: 'modules/users/views/users.client.view.html'
 		}).
 		state('account', {
 			url: '/settings/account',

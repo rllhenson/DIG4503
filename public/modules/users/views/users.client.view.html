@@ -11,11 +11,10 @@
 
 
         <!-- I can see where this is being called and is commented ngRepeat user in users -->
-<!--         <p><type>Username:</type></p>
+        <p><type>Username:</type></p>
         <div data-ng-repeat="user in users">
-            <p>no</p>
             <p>{{user.user}}</p>
-        </div> -->
+        </div>
 
         <div class="list-group">
             <a data-ng-repeat="user in users" data-ng-href="#!/settings/profile-url/{{user.user._id}}" class="list-group-item">
@@ -23,7 +22,7 @@
                 <p>{{user}}</p>
                 <p>wwwhhhhhhyyyyyyy</p>
                 </small>
-                <h4 class="list-group-item-heading" data-ng-bind="user.username"></h4>
+                <h4 class="list-group-item-heading" data-ng-bind="user.user._id"></h4>
             </a>
         </div>
 

@@ -7,12 +7,12 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', 'A
 		$scope.menu = Menus.getMenu('topbar');
 
 		$scope.getClass = function(path) {
-			if ($location.path().substr(0, path.length) == path) {
-		      return "active"
+			if ($location.path().substr(0, path.length) === path) {
+		      return 'active';
 		    } else {
-		      return ""
+		      return '';
 		    }
-		}
+		};
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;

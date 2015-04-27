@@ -75,13 +75,13 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$s
 
 		// Find existing User
 		$scope.findOne = function() {
-			$scope.user = Users.get({ 
+			$scope.users = Users.get({ 
 				userId: $stateParams.userId
 			});
 		};
 
 		$scope.userByID = function(req, res, next, id) {
-			User.findOne({
+			Users.findOne({
 				_id: id
 			}).exec(function(err, user) {
 				if (err) return next(err);
@@ -91,7 +91,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$s
 		});
 
 		$scope.oneuserByID = function(req, res, next, id) { 
-			User.findById(id).populate('user', 'username').exec(function(err, user) {
+			Users.findById(id).exec(function(err, user) {
 				if (err) return next(err);
 				if (! user) return next(new Error('Failed to load User ' + id));
 				req.user = user ;
