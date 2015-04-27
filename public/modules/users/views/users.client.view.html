@@ -1,11 +1,13 @@
 <section data-ng-controller="SettingsController" data-ng-init="find()">
 
-<!-- only can see this page if you are logged in. I think it's becuase it's using find to only find the current user, but I don't know why that's happening -->
+    
 <!-- my attempts to work around this have failed so far
     <div data-ng-show="authentication.user">
  -->    <div class="page-header">
         <h1>Humans</h1>
         </div>
+        <p>Need to work out requests on the server side, I've tried but apparently have yet to be successful</p>
+        <p>That's why this is pulling the request for crudstories rather than users</p>
         <p><type>Username:</type></p>
         <a href="/#!/settings/profile">{{user.username}}</a>
 
