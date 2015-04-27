@@ -1,8 +1,8 @@
 'use strict';
 
 // Crudstories controller
-angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Crudstories',
-	function($scope, $stateParams, $location, Authentication, Crudstories) {
+angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$stateParams', '$location', 'Authentication', /*'Socket',*/ 'Crudstories',
+	function($scope, $stateParams, $location, Authentication, /*Socket,*/ Crudstories) {
 		$scope.authentication = Authentication;
 
 		// Create new Crudstory
@@ -62,5 +62,9 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 				crudstoryId: $stateParams.crudstoryId
 			});
 		};
+
+		// Socket.on('crudstory.created', function(crudstory) {
+		//     console.log(crudstory);
+		// });
 	}
 ]);

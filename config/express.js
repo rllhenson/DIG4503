@@ -8,6 +8,7 @@ var fs = require('fs'),
 	https = require('https'),
 	express = require('express'),
 	morgan = require('morgan'),
+	// logger = require('./logger'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	compress = require('compression'),
@@ -21,7 +22,8 @@ var fs = require('fs'),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),    
+	socketio = require('socket.io');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -63,6 +65,9 @@ module.exports = function(db) {
 	// Set views path and view engine
 	app.set('view engine', 'server.view.html');
 	app.set('views', './app/views');
+
+	// Enable logger (morgan)
+	// app.use(morgan(logger.getLogFormat(), logger.getLogOptions()));
 
 	// Environment dependent middleware
 	if (process.env.NODE_ENV === 'development') {
@@ -157,6 +162,12 @@ module.exports = function(db) {
 		// Return HTTPS server instance
 		return httpsServer;
 	}
+
+	// Attach Socket.io
+	var server = http.createServer(app);
+	var io = socketio.listen(server);
+	app.set('socketio', io);
+	app.set('server', server);
 
 	// Return Express server instance
 	return app;

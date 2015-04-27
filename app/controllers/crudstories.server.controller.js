@@ -20,7 +20,11 @@ exports.create = function(req, res) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
-		} else {
+		} else {			
+			// var socketio = req.app.get('socketio'); // makes a socket instance
+			// socketio.emit('article.created', article); // sends the socket event to all current users
+			// socketio.emit('crudstory.created', crudstory);
+			
 			res.jsonp(crudstory);
 		}
 	});
