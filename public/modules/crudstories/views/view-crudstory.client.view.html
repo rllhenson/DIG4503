@@ -1,6 +1,6 @@
 <section data-ng-controller="CrudstoriesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="crudstory.name"></h1>
+		<h1 data-ng-bind="crudstory.title"></h1>
 	</div>
 	<div class="pull-right" data-ng-show="authentication.user" data-ng-hide="authentication.user._id == crudstory.user._id">
 	<!-- will incorporate crudstory.user._id -->
@@ -17,6 +17,7 @@
 		</a>
 	</div>
 	<small>
+		<p data-ng-bind="crudstory.body"></p>
 		<em class="text-muted">
 			Posted on
 			<span data-ng-bind="crudstory.created | date:'mediumDate'"></span>

@@ -7,7 +7,7 @@ module.exports = function(app) {
 	// Crudstories Routes
 	app.route('/crudstories')
 		.get(crudstories.list)
-		.get(users.list)
+		// .get(users.list)
 		.post(users.requiresLogin, crudstories.create);
 
 	app.route('/users').get(users.list);

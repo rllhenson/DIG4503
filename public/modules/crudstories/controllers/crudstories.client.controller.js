@@ -63,8 +63,8 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			});
 		};
 
-		// Socket.on('crudstory.created', function(crudstory) {
-		//     console.log(crudstory);
-		// });
+		Socket.on('crudstory.created', function(crudstory) {
+		    console.log(crudstory);
+		});
 	}
 ]);

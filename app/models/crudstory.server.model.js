@@ -10,10 +10,16 @@ var mongoose = require('mongoose'),
  * Crudstory Schema
  */
 var CrudstorySchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		default: '',
-		required: 'Please fill Crudstory name',
+		required: 'Please fill Crudstory title',
+		trim: true
+	},
+	body: {
+		type: String,
+		default: '',
+		required: 'Please fill Crudstory body',
 		trim: true
 	},
 	created: {
@@ -24,7 +30,11 @@ var CrudstorySchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+	},
+	likes: [{
+		type: Schema.ObjectId,
+		ref: 'User'
+	}]
 });
 
 mongoose.model('Crudstory', CrudstorySchema);
