@@ -13,16 +13,20 @@ var CrudstorySchema = new Schema({
 	title: {
 		type: String,
 		default: '',
-		required: 'Please fill Crudstory title',
+		required: 'Please fill Crudstory Title',
 		trim: true
 	},
-	body: {
+	story: {
 		type: String,
 		default: '',
-		required: 'Please fill Crudstory body',
+		required: 'Please fill Crudstory Story',
 		trim: true
 	},
 	created: {
+		type: Date,
+		default: Date.now
+	},
+	updated: {
 		type: Date,
 		default: Date.now
 	},

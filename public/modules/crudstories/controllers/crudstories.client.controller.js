@@ -9,7 +9,8 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 		$scope.create = function() {
 			// Create new Crudstory object
 			var crudstory = new Crudstories ({
-				name: this.name
+				title: this.title,
+				story: this.story
 			});
 
 			// Redirect after save
@@ -17,7 +18,8 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 				$location.path('crudstories/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+				$scope.title = '';
+				$scope.story = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

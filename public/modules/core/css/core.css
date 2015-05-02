@@ -28,6 +28,10 @@ type{
 	font-weight: bold;
 }
 
+type span{
+	padding-left: 5px;
+}
+
 .jumbotron{
 	/*background: url('../img/brand/Typewriter_Mac.png');*/
 	background-color: white;

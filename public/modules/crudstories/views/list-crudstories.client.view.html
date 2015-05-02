@@ -1,23 +1,24 @@
 <section data-ng-controller="CrudstoriesController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Stories</h1>
+        <type><h1>Stories</h1></type>
     </div>
     <div class="list-group">
         <a data-ng-repeat="crudstory in crudstories" data-ng-href="#!/crudstories/{{crudstory._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="crudstory.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="crudstory.user.username"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="crudstory.title"></h4>
-            <h4 class="list-group-item-heading" data-ng-bind="crudstory.story"></h4>
+			<medium class="list-group-item-text">
+				<type><span data-ng-bind="crudstory.title"></span></type>,
+                by:
+                <type><span data-ng-bind="crudstory.user.username"></span></type>,
+				written on:
+                <type><span data-ng-bind="crudstory.created | date:'medium'"></span></type>
+			</medium>
+<!-- 			<h4 class="list-group-item-heading" data-ng-bind="crudstory.title"></h4>
+            <h4 class="list-group-item-heading" data-ng-bind="crudstory.story"></h4> -->
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!crudstories.$resolved || crudstories.length">
     	You haven't written any stories yet, why don't you <a href="/#!/crudstories/create">write one</a>?
     </div>
-    <div class="text-center bg-info">
+    <div class="text-center bg-info" data-ng-show="authentication.user" >
         <p>Why don't you<a href="/#!/crudstories/create">write</a> a story?
     </div>
 </section>

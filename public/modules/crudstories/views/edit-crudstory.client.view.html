@@ -1,6 +1,6 @@
 <section data-ng-controller="CrudstoriesController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Crudstory</h1>
+        <type><h1>Edit Crudstory</h1></type>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
@@ -10,13 +10,14 @@
                     <div class="controls">
                         <input type="text" data-ng-model="crudstory.title" id="title" class="form-control" placeholder="Title" required>
                     </div>
-                    <label class="control-label" for="body">Body</label>
+                    <label class="control-label" for="story">Story</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="crudstory.body" id="body" class="form-control" placeholder="Body" required>
+                        <input type="text" data-ng-model="crudstory.story" id="story" class="form-control" placeholder="Story" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
+                    <a href="/#!/crudstories"><button class="btn btn-default">Cancel</button></a>
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
