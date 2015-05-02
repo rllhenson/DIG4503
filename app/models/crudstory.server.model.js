@@ -35,10 +35,6 @@ var CrudstorySchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
-	likes: [{
-		type: Schema.ObjectId,
-		ref: 'User'
-	}]
 });
 
 mongoose.model('Crudstory', CrudstorySchema);

@@ -46,7 +46,7 @@ describe('Crudstory Model Unit Tests:', function() {
 		});
 
 		it('should be able to show an error when try to save without name', function(done) { 
-			crudstory.name = '';
+			crudstory.title = '';
 
 			return crudstory.save(function(err) {
 				should.exist(err);

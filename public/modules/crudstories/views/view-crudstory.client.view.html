@@ -4,8 +4,8 @@
 	</div>
 	<div class="pull-right" data-ng-show="authentication.user" data-ng-hide="authentication.user._id == crudstory.user._id">
 	<!-- will incorporate crudstory.user._id -->
-		<button class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-paperclip">Favorite</i></button>
-		<button class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-comment">Comment</i></button>
+		<button data-ng-show="authentication.user" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-paperclip"> Favorite</i></button>
+		<button class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-comment"> Message</i></button>
 	</div>
 
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == crudstory.user._id))">
