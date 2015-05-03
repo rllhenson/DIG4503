@@ -66,7 +66,7 @@ angular.module('users').controller('UserController', ['$scope', '$http', '$state
 		};
 
 		// Find a list of Users
-		$scope.find = function() {
+		$scope.findauthors = function() {
 			$scope.users = Users.query();
 		};
 

@@ -10,13 +10,14 @@ module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 
 	// Setting up the users list
-	app.route('/users').get(users.list);
+	app.route('/crudstories').get(users.list);
 
 	// Setting up the users profile api
 	app.route('/users/me')
 		.get(users.me)
-	// 	;
-	// app.route('/users')
+		;
+	app.route('/users')
+		.get(users.list)
 		.put(users.update);
 	app.route('/users/accounts').delete(users.removeOAuthProvider);
 

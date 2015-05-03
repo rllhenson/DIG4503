@@ -25,6 +25,7 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			});
 
 			Socket.on('crudstory.created', function(crudstory) {
+				Socket.emit('news', { hello: 'world' });
 		    	console.log(crudstory);
 			});
 		};

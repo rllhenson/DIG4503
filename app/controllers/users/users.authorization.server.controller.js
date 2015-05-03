@@ -28,9 +28,13 @@ exports.userByID = function(req, res, next, id) {
  changed from display to username here, we'll see what happens
  */
 exports.list = function(req, res) { 
-	User.find().sort('-created').exec(function(err, users) {
+	User.find({}).exec(function(err, users) {
 		res.jsonp(users);
 		// what would happen if this was req?
+		// nothing apparently
+		// nothing works
+		// why
+		// I don't understand
 	});
 };
 

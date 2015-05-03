@@ -22,9 +22,9 @@ angular.module('users').config(['$stateProvider',
 	  //       },
 			templateUrl: 'modules/users/views/settings/profile-url.client.view.html'
 		}).
-		state('users', {
-			url: '/users',
-			templateUrl: 'modules/users/views/users.client.view.html'
+		state('authors', {
+			url: '/authors',
+			templateUrl: 'modules/users/views/authors.client.view.html'
 		}).
 		state('account', {
 			url: '/settings/account',
