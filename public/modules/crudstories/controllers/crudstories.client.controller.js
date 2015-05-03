@@ -68,21 +68,5 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 		Socket.on('crudstory.created', function(crudstory) {
 		    console.log(crudstory);
 		});
-
-
-		// $scope.status = {
-	 //    	isopen: false
-	 //  	};
-
-	 //  	$scope.toggled = function(open) {
-	 //    	$log.log('Dropdown is now: ', open);
-	 //  	};
-
-	 //  	$scope.toggleDropdown = function($event) {
-	 //    	$event.preventDefault();
-	 //    	$event.stopPropagation();
-	 //    	$scope.status.isopen = !$scope.status.isopen;
-	 //  	};
-		
 	}
 ]);
