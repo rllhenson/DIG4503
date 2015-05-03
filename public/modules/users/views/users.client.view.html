@@ -1,4 +1,4 @@
-<section data-ng-controller="SettingsController" data-ng-init="find()">
+<section data-ng-controller="UserController" data-ng-init="find()">
 
     
 <!-- my attempts to work around this have failed so far
@@ -6,11 +6,6 @@
  -->    <div class="page-header">
         <h1>Humans</h1>
         </div>
-        <p>Need to work out requests on the server side, I've tried but apparently have yet to be successful</p>
-        <p>That's why this is pulling the request for crudstories rather than users</p>
-        <p><type>Username:</type></p>
-        <a href="/#!/settings/profile">{{user.username}}</a>
-
 
         <!-- I can see where this is being called and is commented ngRepeat user in users -->
         <p><type>Username:</type></p>
@@ -23,6 +18,8 @@
                 <small class="list-group-item-text">
                 <p>{{user}}</p>
                 <p>wwwhhhhhhyyyyyyy</p>
+                <p>{{user.user.username}}</p>
+                <p>{{username}}
                 </small>
                 <h4 class="list-group-item-heading" data-ng-bind="user.user._id"></h4>
             </a>
@@ -30,9 +27,9 @@
 
         <!-- <div ng-controller="ExampleController"> -->
           <!-- <div ng-repeat="user in users" ng-init="outerIndex = $index"> -->
-            <div data-ng-repeat="user in users" ng-init="innerIndex = $index">
-               <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{user}};</span>
-            </div>
+        <div data-ng-repeat="user in users" ng-init="innerIndex = $index">
+           <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{user}};</span>
+        </div>
           <!-- </div> -->
         <!-- </div> -->
 
