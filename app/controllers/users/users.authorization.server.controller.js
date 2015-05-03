@@ -38,6 +38,11 @@ exports.lists = function(req, res) {
 	});
 };
 
+exports.readr = function(req, res) {
+	res.jsonp(req.user);
+};
+
+
 /**
  * Require login routing middleware
  */

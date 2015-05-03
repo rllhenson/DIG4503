@@ -92,6 +92,10 @@ var UserSchema = new Schema({
 	favorites: [{
 		type: Schema.ObjectId,
 		ref: 'Crudstory'
+	}],
+	friends: [{
+		type: Schema.ObjectId,
+		ref: 'User'
 	}]
 });
 

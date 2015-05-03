@@ -12,8 +12,8 @@ module.exports = function(app) {
 
 	app.route('/users').get(users.lists);
 
-	app.route('/crudstories/:crudstoryId')
-		.get(crudstories.read)
+	app.route('/crudstories/:userId')
+		.get(users.readr)
 		.put(users.requiresLogin, crudstories.hasAuthorization, crudstories.update)
 		.delete(users.requiresLogin, crudstories.hasAuthorization, crudstories.delete);
 

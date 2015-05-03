@@ -1,12 +1,13 @@
-<section class="row" data-ng-controller="SettingsController" data-ng-init="find()">
+<section class="row" data-ng-controller="UserController" data-ng-init="findOne()">
 <!-- oneuserByID(userId) -->
 <!-- userByID shows current user while find and findOne show nothing -->
 
-	<div class="col-12">
+	<!-- <div class="col-12"> -->
 		<br>
 		<br>
+		<a href="/#!/authors"><button class="btn btn-default">Back to Authors</button></a>
 
-    	<div class="move text-center" heading="Your Profile">
+    	<div class="text-center" heading="Profile">
 		  	<div class="rightish">
 				<h3 class="text-center"><type>Profile</type></h3>
 				<hr>
@@ -21,34 +22,23 @@
 					<br>
 				</div>
 				<div class="tab">
-					<p><type>Original Prompts:</type></p>
+					<p><type>Stories:</type></p>
 					<ul>
-						<li><a href="#">Story Title, organized by date written, newest first</a></li>
-						<li><a href="#">limit to ten</a></li>
-						<li><a href="#">... /<- clicking this takes you to their stories page where you can view all of their content</a></li>
+						<li ng-repeat="crudstory in crudstories | filter:{ user: username }"><a href="#">{{crudstory.title}}</a></li>
 					</ul>
 					<br>
 				</div>
 				<div class="tab">
-					<p><type>Collaborations:</type></p>
+					<p><type>Friends:</type></p>
 					<ul>
-						<li><a href="#">Story Title, organized by date of user's first addition to story, oldest first</a></li>
-						<li><a href="#">limit to ten</a></li>
-						<li><a href="#">... /<- clicking this takes you to their story page as well</a></li>
-					</ul>
-					<br>
-				</div>
-				<div class="tab">
-					<p><type>Friends: <- this might be problematic if based strictly on collabs</type></p>
-					<ul>
-						<li><a href="#">List of all friends/collaborators they've worked with</a></li>
+						<li ng-repeat="favorite in user.favorites"><a href="#">{{user.favorites.title}}</a></li>
 					</ul>
 					<br>
 				</div>
 				<div class="tab">
 					<p><type>Faves:</type></p>
 					<ul>
-						<li><a href="#">List of their favorite stories</a></li>
+						<li ng-repeat="friend in user.friends"><a href="#">{{user.friend.username}}</a></li>
 					</ul>
 					<br>
 				</div>
@@ -56,5 +46,5 @@
     	</div>
 
 
-	</div>
+	<!-- </div> -->
 </section>
