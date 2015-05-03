@@ -27,7 +27,7 @@ exports.userByID = function(req, res, next, id) {
  * List of Users
  */
 exports.lists = function(req, res) { 
-	User.find().exec(function(err, users) {
+	User.find().sort({ username: 1 }).exec(function(err, users) {
 		res.jsonp(users);
 		// next();
 		// what would happen if this was req?
