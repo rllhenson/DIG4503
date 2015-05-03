@@ -106,7 +106,7 @@ exports.crudstoryByID = function(req, res, next, id) {
  * Crudstory authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.crudstory.user.id !== req.user.id) {
+	if (req.crudstory.user[0].id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
