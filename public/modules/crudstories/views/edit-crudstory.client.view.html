@@ -6,6 +6,10 @@
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
+                    <label class="control-label" for="user">Username</label>
+                    <div class="controls">
+                        <input type="text" id="user" data-ng-model="crudstory.user[0].username" class="form-control" required disabled>
+                    </div>
                     <label class="control-label" for="title">Title</label>
                     <div class="controls">
                         <input type="text" data-ng-model="crudstory.title" id="title" class="form-control" placeholder="Title" required>
