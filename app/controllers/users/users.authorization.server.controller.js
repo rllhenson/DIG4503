@@ -26,7 +26,7 @@ exports.userByID = function(req, res, next, id) {
 /**
  * List of Users
  */
-exports.lists = function(req, res, next) { 
+exports.list = function(req, res, next) { 
 	User.find().exec(function(err, users) {
 		res.jsonp(users);
 		next();
