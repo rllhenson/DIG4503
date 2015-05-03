@@ -25,11 +25,11 @@ exports.userByID = function(req, res, next, id) {
 
 /**
  * List of Users
- changed from display to username here, we'll see what happens
  */
-exports.list = function(req, res) { 
-	User.find({}).exec(function(err, users) {
+exports.lists = function(req, res, next) { 
+	User.find().exec(function(err, users) {
 		res.jsonp(users);
+		next();
 		// what would happen if this was req?
 		// nothing apparently
 		// nothing works
