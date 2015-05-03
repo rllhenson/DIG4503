@@ -31,10 +31,10 @@ var CrudstorySchema = new Schema({
 		default: Date.now
 	},
 	// this needs to be an array
-	user: {
+	user: [{
 		type: Schema.ObjectId,
 		ref: 'User'
-	},
+	}],
 });
 
 mongoose.model('Crudstory', CrudstorySchema);

@@ -2,13 +2,13 @@
 	<div class="page-header">
 		<type><h1 data-ng-bind="crudstory.title"></h1></type>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user" data-ng-hide="authentication.user._id == crudstory.user._id">
+	<div class="pull-right" data-ng-show="authentication.user" data-ng-hide="authentication.user._id == crudstory.user[0]._id">
 	<!-- will incorporate crudstory.user._id -->
 		<button data-ng-show="authentication.user" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-paperclip"> Favorite</i></button>
 		<button class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-comment"> Message</i></button>
 	</div>
 
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == crudstory.user._id))">
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == crudstory.user[0]._id))">
 		<a class="btn btn-default" href="/#!/crudstories/{{crudstory._id}}/edit">
 			<i class="glyphicon glyphicon-edit">Edit</i>
 		</a>
@@ -24,7 +24,7 @@
 			<span data-ng-bind="crudstory.created | date:'mediumDate'"></span>
 			by
 			<!-- this display name is pulling the name of the individual rather than their username, which is something I will change, once I figure out where it is happening -->
-			<a href="/#!/settings/user-profile/{{user.user._id}}" data-ng-href="#!/settings/profile-url/{{user.user._id}}"><span data-ng-bind="crudstory.user.username"></span></a>
+			<a href="/#!/settings/user-profile/{{user.user._id}}" data-ng-href="#!/settings/profile-url/{{user.user[0]._id}}"><span data-ng-bind="crudstory.user[0].username"></span></a>
 		</em></type>
 	</small>
 	<br/>
@@ -40,8 +40,8 @@
       <ul class="dropdown-menu" role="menu">
       <!-- it's concerning that this is displaying two things, as at the moment the user aspect of the crudstory model isn't an array.... -->
         <li data-ng-repeat="user in crudstory.user" ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user}}</a></li>
-        <li data-ng-show="(authentication.user)" class="divider"></li>
-        <li data-ng-show="(authentication.user)"><a href="/#!/crudstories/{{crudstory._id}}/edit">Add Author</a></li>
+        <li data-ng-show="(authentication.user._id == crudstory.user[0]._id)" class="divider"></li>
+        <li data-ng-show="(authentication.user._id == crudstory.user[0]._id)"><a href="/#!/crudstories/{{crudstory._id}}/edit">Add Author</a></li>
       </ul>
 
     </div>
