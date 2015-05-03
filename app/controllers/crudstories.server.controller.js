@@ -77,7 +77,7 @@ exports.delete = function(req, res) {
  * List of Crudstories
  changed from display to username here, we'll see what happens
  */
-exports.list = function(req, res) { 
+exports.listr = function(req, res) { 
 	Crudstory.find().sort('-created').populate('user', 'username').exec(function(err, crudstories) {
 		if (err) {
 			return res.status(400).send({
