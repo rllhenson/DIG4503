@@ -20,6 +20,10 @@ angular.module('crudstories').config(['$stateProvider',
 		state('editCrudstory', {
 			url: '/crudstories/:crudstoryId/edit',
 			templateUrl: 'modules/crudstories/views/edit-crudstory.client.view.html'
+		}).
+		state('editAuthor', {
+			url: '/crudstories/:crudstoryId/edit-author',
+			templateUrl: 'modules/crudstories/views/edit-author.client.view.html'
 		});
 	}
 ]);

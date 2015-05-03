@@ -6,19 +6,32 @@
         <form class="form-horizontal" data-ng-submit="updateAuthor()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="user">Username</label>
+                    <label class="control-label" for="user">Primary User</label>
                     <div class="controls">
-                        <input type="text" id="user" data-ng-model="crudstory.user" class="form-control" required>
+                        <input type="text" id="user" data-ng-model="crudstory.user[0].username" class="form-control" required disabled>
                     </div>
+
+                    <div ng-repeat="item in items">
+                        <input type="text" class="form-control" id="user{{item.questionPlaceholder}}" placeholder="user {{item.questionPlaceholder}}" ng-model="item.question">
+                        <!-- placeholder="{{item.questionPlaceholder}}" -->
+                    </div>
+
+
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
-                    <a href="/#!/crudstories/{{crudstory._id}}"><button class="btn btn-default">Cancel</button></a>
+                    <button ng-click="cancel()" class="btn btn-default">Cancel</button>
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
             </fieldset>
         </form>
+
+<!--         <div ng-repeat="item in items">
+            <input type="text"  ng-model="item.question">
+        </div> -->
+
+        <button class="btn btn-default" ng-click="add()">Add</button>
     </div>
 </section>

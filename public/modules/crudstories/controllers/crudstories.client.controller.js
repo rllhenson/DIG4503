@@ -58,7 +58,51 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			});
 		};
 
-		// Find a list of Crudstories
+
+		// Update existing Crudstory
+		$scope.updateAuthor = function() {
+			var crudstory = $scope.crudstory;
+
+			var username = $scope.items[0].question;
+			// get username from input and push to crudstory.user[]
+			// can queryying happen with the username to get the id? do I need the user id?
+
+			$scope.crudstory.user.push({
+				username: username
+			});
+
+			console.log("username: "+username);
+			console.log("current number of users: "+$scope.crudstory.user);
+			console.log("current users: "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username);
+
+			crudstory.$update(function() {
+				$location.path('crudstories/' + crudstory._id);
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		$scope.cancel = function() {
+			var crudstory = $scope.crudstory;
+			console.log("current number of users: "+$scope.crudstory.user);
+			console.log("current users: "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username);
+			$location.path('crudstories/' + crudstory._id);
+		}
+
+		// http://jsbin.com/fusapojo/4/edit?html,output
+		$scope.items = [];
+        $scope.usernum = 1;
+
+        $scope.add = function () {
+          $scope.items.push({ 
+            question: "",
+            questionPlaceholder: $scope.usernum
+          });
+          $scope.usernum += 1;
+        };
+
+
+        // Find a list of Crudstories
 		$scope.find = function() {
 			$scope.crudstories = Crudstories.query();
 		};
@@ -68,6 +112,11 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			$scope.crudstory = Crudstories.get({ 
 				crudstoryId: $stateParams.crudstoryId
 			});
+
+
+			// var crudstory = $scope.crudstory;
+
+			// console.log("current users: "+crudstory.user[0]);
 		};
 
 	}
