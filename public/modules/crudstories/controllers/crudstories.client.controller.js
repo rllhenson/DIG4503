@@ -85,7 +85,7 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 		$scope.cancel = function() {
 			var crudstory = $scope.crudstory;
 			console.log("current number of users: "+$scope.crudstory.user);
-			console.log("current users: "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username);
+			console.log("current users: "+$scope.crudstory.user[0]+" "+$scope.crudstory.user[1]);
 			$location.path('crudstories/' + crudstory._id);
 		}
 

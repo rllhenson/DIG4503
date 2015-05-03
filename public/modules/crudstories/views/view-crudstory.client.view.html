@@ -39,7 +39,9 @@
 
       <ul class="dropdown-menu" role="menu">
       <!-- it's concerning that this is displaying two things, as at the moment the user aspect of the crudstory model isn't an array.... -->
-        <li data-ng-repeat="user in crudstory.user" ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user}}</a></li>
+        <!-- <li data-ng-repeat="user in crudstory.user" ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user}}</a></li> -->
+        <li ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user[0]}}</a></li>
+        <li ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user.user[1].username}}</a></li>
         <li data-ng-show="(authentication.user._id == crudstory.user[0]._id)" class="divider"></li>
         <li data-ng-show="(authentication.user._id == crudstory.user[0]._id)"><a href="/#!/crudstories/{{crudstory._id}}/edit-author">Add Author</a></li>
       </ul>
