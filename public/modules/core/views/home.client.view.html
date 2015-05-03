@@ -91,21 +91,20 @@
 	</div>
 
 	<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module">
+        <div class="sidebar-module">
             <h4>Important places</h4>
             <ol class="list-unstyled">
-              <li><a href="/#!/crudstories/552b1a4713a0341c35a2d72a">First ever post thing ever, everyone who joins should add to it</a></li>
+              <!-- <li><a href="/#!/crudstories/552b1a4713a0341c35a2d72a">First ever post thing ever, everyone who joins should add to it</a></li>
               <li><a href="#">Helpful hints for getting started</a></li>
               <li><a href="#">Guidelines, essentially don't be a jerk</a></li>
-              <li><hr></li>
-              <li><a href="/#!/crudstories">Stories - Original</a></li>
-              <li><a href="/#!/crudstories">Stories - Fanworks</a></li>
-              <li><a href="/#!/users">Author People</a></li>
-              <li data-ng-show="authentication.user"><a href="/#!/settings/profile">Your stuff?</a></li>
-              <li><a href="#">I don't know</a></li>
+              <li><hr></li> -->
+              	<li><a href="/#!/crudstories">Stories</a></li>
+              	<li><a href="/#!/users">Authors</a></li>
+              	<li data-ng-show="authentication.user"><hr></li>
+              	<li data-ng-show="authentication.user"><a href="/#!/settings/profile">Your stuff</a></li>
             </ol>
-          </div>
-          <br>
+        </div>
+<!--           <br>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
@@ -113,8 +112,13 @@
               <li><a href="#">But I don't know what should be here</a></li>
               <li><a href="#">Maybe... logged in favorites/profile stuff</a></li>
             </ol>
-          </div>
-        </div>
+          </div> -->
+    </div>
+
+    <!-- <p ng-repeat="crudstory in crudstories | filter: global.search">{{ crudstory.title }}</p> -->
+       
+
+    </div>
 <!-- 
 	<br>It occurs to me all I've done is edit the header and change the text of the jumbotron example. I shall change it soon.
 	<br> -->

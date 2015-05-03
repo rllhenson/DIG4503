@@ -31,4 +31,18 @@
 	<br/>
 	<br/>
 	<a href="/#!/crudstories"><button class="btn btn-default">Back to Stories</button></a>
+	<div class="btn-group" dropdown is-open="status.isopen">
+    <!-- ng-disabled="disabled" -->
+      <button type="button" class="btn btn-primary dropdown-toggle"  >
+        Authors <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" role="menu">
+      <!-- it's concerning that this is displaying two things, as at the moment the user aspect of the crudstory model isn't an array.... -->
+        <li data-ng-repeat="user in crudstory.user" ><a href="/#!/settings/user-profile/{{user.user._id}}">{{crudstory.user}}</a></li>
+        <li data-ng-show="(authentication.user)" class="divider"></li>
+        <li data-ng-show="(authentication.user)"><a href="/#!/crudstories/{{crudstory._id}}/edit">Add Author</a></li>
+      </ul>
+
+    </div>
 </section>
