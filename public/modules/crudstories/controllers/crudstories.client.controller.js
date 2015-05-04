@@ -48,15 +48,15 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 		};
 
 		// Update existing Crudstory
-		// $scope.update = function() {
-		// 	var crudstory = $scope.crudstory;
+		$scope.update = function() {
+			var crudstory = $scope.crudstory;
 
-		// 	crudstory.$update(function() {
-		// 		$location.path('crudstories/' + crudstory._id);
-		// 	}, function(errorResponse) {
-		// 		$scope.error = errorResponse.data.message;
-		// 	});
-		// };
+			crudstory.$update(function() {
+				$location.path('crudstories/' + crudstory._id);
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
 
 
 		// Update existing Crudstory
