@@ -25,7 +25,7 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			});
 
 			Socket.on('crudstory.created', function(crudstory) {
-				Socket.emit('news', { hello: 'world' });
+				// Socket.emit('news', { hello: 'world' });
 		    	console.log(crudstory);
 			});
 		};
@@ -48,15 +48,15 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 		};
 
 		// Update existing Crudstory
-		$scope.update = function() {
-			var crudstory = $scope.crudstory;
+		// $scope.update = function() {
+		// 	var crudstory = $scope.crudstory;
 
-			crudstory.$update(function() {
-				$location.path('crudstories/' + crudstory._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+		// 	crudstory.$update(function() {
+		// 		$location.path('crudstories/' + crudstory._id);
+		// 	}, function(errorResponse) {
+		// 		$scope.error = errorResponse.data.message;
+		// 	});
+		// };
 
 
 		// Update existing Crudstory
@@ -64,18 +64,44 @@ angular.module('crudstories').controller('CrudstoriesController', ['$scope', '$s
 			var crudstory = $scope.crudstory;
 
 			var username = $scope.items[0].question;
+			// var username2 = $scope.items[1].question;
+
+			// $scope.crudstory.user.push({
+			// 	username: username
+			// 	// ,
+			// 	// _id: 1
+			// });
+			// $scope.crudstory.user.push({
+			// 	username: username2,
+			// 	_id: 2
+			// });
+
+			// this yells at me and says it isn't a thing
+			// crudstory.push({
+			// 	user: $scope.crudstory.user[1]
+			// });
+
 			// get username from input and push to crudstory.user[]
 			// can queryying happen with the username to get the id? do I need the user id?
-
+			// adding an id doesn't make it any more permanent
+			// addtoset does nothing
+			// apparently .insert() isn't a function
+			// naming this function just 'update' instead of 'updateAuthor' doesn't make it any more permanent - I thought maybe it was a routing issue, but that would've fixed it yeah?
 			$scope.crudstory.user.push({
 				username: username
 			});
 
+			var cruduser = $scope.crudstory.user;
 			console.log("username: "+username);
+			// console.log("crudstory: "+$scope.crudstory.title+" "+$scope.crudstory.story+" "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username);
 			console.log("current number of users: "+$scope.crudstory.user);
-			console.log("current users: "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username);
+			console.log("current users: "+$scope.crudstory.user[0].username+" "+$scope.crudstory.user[1].username /*+" "+$scope.crudstory.user[2].username*/);
 
-			crudstory.$update(function() {
+			// add to set makes no difference
+			$scope.crudstory.$update(function () {
+			// 	{$addToSet: {user: [ username, username2 ] }},
+
+			// function() {
 				$location.path('crudstories/' + crudstory._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
